@@ -37,7 +37,7 @@
 #define DEFAULT_ROWSIZE K(64)
 
 std::vector<struct model> models = { 
-//  model         ro.product.name     board            platform  ion  row      generic name 
+//  model         ro.p▒▒123456789:;<=>?@ABCDEFGHIJKLMNOPQRSUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyzz{|}~��������������������������������������������������������������������������������������������������������������������    !"#$%&'()*+/0123456789:;<=>@ABCDEFGJroduct.name     board            platform  ion  row      generic name 
 
 // Snapdragon 820
 // {"SM-G935T",  "hero2qltetmo",     "msm8996",       "msm8996", 21,  0,      "Samsung Galaxy S7 Edge"},
@@ -103,8 +103,8 @@ std::vector<struct model> models = {
 
    {"HTC Desire 830 dual sim","a51cml_dtul_00401","", "mt6753",   1,  K(64),   "HTC Desire 830"},
 
-   {"E5603",    "E5603",             "",              "mt6795",   1,  K(64),   "Sony Xperia M5"}
-
+   {"E5603",    "E5603",             "",              "mt6795",   1,  K(64),   "Sony Xperia M5"},
+   {"PINE A64", "tulip_chiphd",      "exdroid",       "tulip",    1,  K(32),   "Pine A64-LTS"}
  
  // MT6572
 // {"Goophone i5C", "mbk72_wet_jb3", "mbk72_wet_jb3", "",        21,  0,      "Goophone i5C"},

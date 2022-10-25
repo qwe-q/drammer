@@ -47,6 +47,7 @@ int chipset;
 #define CHIPSET_KIRIN       1 
 #define CHIPSET_SPREADTRUM  2
 #define CHIPSET_QCT         22
+#define CHIPSET_PINE        1
 
 int ion_fd;
 extern int rowsize;
@@ -59,6 +60,7 @@ ion_user_handle_t ION_alloc(int len, int heap_id) {
     struct ion_allocation_data allocation_data;
 
     if (heap_id == -1) {
+        // print("Setting heap mask to %d\n", chipset);
         allocation_data.heap_id_mask = (0x1 << chipset);
     } else {
         allocation_data.heap_id_mask = (0x1 << heap_id);
@@ -282,6 +284,10 @@ void ION_init(void) {
         if (line.find("MSM8627") != std::string::npos) {
             print("Detected cihpset MSM8627\n");
             chipset = CHIPSET_QCT;
+        }
+        if(line.find("sun50iw1p1") != std::string::npos) {
+            print("Detected chipset sun50iw1p1\n");
+            chipset = CHIPSET_PINE;
         }
     }
     
