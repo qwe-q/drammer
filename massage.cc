@@ -62,15 +62,21 @@ size_t get_LowFree(void) { return read_meminfo("LowFree"); }
 int exhaust(std::vector<struct ion_data *> &chunks, int min_bytes, bool mmap) { 
     int total_kb;
 
-    total_kb = 0;
-    for (int order = MAX_ORDER; order >= B_TO_ORDER(min_bytes); order--) {
-        int count = ION_bulk(ORDER_TO_B(order), chunks, 0, mmap);
-        print("[EXHAUST] - order %2d (%4d KB) - got %3d chunks\n", 
-                    order, ORDER_TO_KB(order), count);
-        total_kb += ORDER_TO_KB(order) * count;
-
-        if (lowmem) break;
+    total_kb = M(32);
+    int count = ION_bulk(M(32), chunks, 1, mmap);
+    if(count != 1)
+    {
+        print("Couldn't alloc 32MB chunk\n");
+        exit(EXIT_FAILURE);
     }
+    // for (int order = MAX_ORDER; order >= B_TO_ORDER(min_bytes); order--) {
+    //     int count = ION_bulk(ORDER_TO_B(order), chunks, 0, mmap);
+    //     print("[EXHAUST] - order %2d (%4d KB) - got %3d chunks\n", 
+    //                 order, ORDER_TO_KB(order), count);
+    //     total_kb += ORDER_TO_KB(order) * count;
+
+    //     if (lowmem) break;
+    // }
     print("[EXHAUST] allocated %d KB (%d MB)\n", total_kb, total_kb / 1024);
 
     return total_kb;
