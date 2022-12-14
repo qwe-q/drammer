@@ -237,6 +237,7 @@ int do_hammer(uint8_t *virt_row,
     for (int i = 0; i < hammer_readcount; i++) {
         *virt_above;
         *virt_below;
+        asm volatile("isb");
     }
     uint64_t t2 = get_ns();
     int ns_per_read = (t2 - t1) / (hammer_readcount * 2);

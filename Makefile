@@ -21,7 +21,7 @@ CXX   = $(STANDALONE_TOOLCHAIN)/arm-linux-androideabi-g++
 CPP   = $(STANDALONE_TOOLCHAIN)/arm-linux-androideabi-g++
 STRIP = $(STANDALONE_TOOLCHAIN)/arm-linux-androideabi-strip
 
-CPPFLAGS = -std=c++11 -O3 -Wall
+CPPFLAGS = -std=c++11 -O3 -Wall -march=armv7-a
 LDFLAGS  = -pthread -static
 INCLUDES = -I$(PWD)/../include
 
