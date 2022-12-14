@@ -38,7 +38,7 @@
 #include "ion.h"
 
 int chipset;
-#define CHIPSET_MSM         21
+#define CHIPSET_MSM         22
 #define CHIPSET_MEDIATEK    1
 #define CHIPSET_EXYNOS      4
 #define CHIPSET_MAKO        25
@@ -56,7 +56,7 @@ extern int rowsize;
  * Core ION wrappers
  **********************************************/
 ion_user_handle_t ION_alloc(int len, int heap_id) {
-    if (heap_id == -1 && len > M(4)) return 0;
+    // if (heap_id == -1 && len > M(4)) return 0;
     struct ion_allocation_data allocation_data;
 
     if (heap_id == -1) {
