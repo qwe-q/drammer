@@ -38,7 +38,7 @@
 #include "ion.h"
 
 int chipset;
-#define CHIPSET_MSM         21
+#define CHIPSET_MSM         22
 #define CHIPSET_MEDIATEK    1
 #define CHIPSET_EXYNOS      4
 #define CHIPSET_MAKO        25
@@ -47,7 +47,7 @@ int chipset;
 #define CHIPSET_KIRIN       1 
 #define CHIPSET_SPREADTRUM  2
 #define CHIPSET_QCT         22
-#define CHIPSET_PINE        1
+#define CHIPSET_PINE        4
 
 int ion_fd;
 extern int rowsize;
@@ -60,7 +60,6 @@ ion_user_handle_t ION_alloc(int len, int heap_id) {
     struct ion_allocation_data allocation_data;
 
     if (heap_id == -1) {
-        // print("Setting heap mask to %d\n", chipset);
         allocation_data.heap_id_mask = (0x1 << chipset);
     } else {
         allocation_data.heap_id_mask = (0x1 << heap_id);
