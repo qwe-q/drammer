@@ -231,11 +231,7 @@ int main(int argc, char *argv[]) {
     pattern_t prrr = { .above = rand1, .victim = rand2, .below = rand3, .cur_use = 0, .max_use = 100, .reset_above = resetter, .reset_victim = resetter, .reset_below = resetter };
 
     std::vector<struct pattern_t *> patterns;
-    if (all_patterns) 
-        patterns = {&p000, &p001, &p010, &p011, &p100, &p101, &p110, &p111, 
-                           &p00r, &p0r0, &p0rr, &pr00, &pr0r, &prr0, &prrr};
-    else
-        patterns = {&p101, &p010};
+    patterns = {&prrr};
     
     /*** TEMPLATE */
     printf("[MAIN] Start templating\n");
